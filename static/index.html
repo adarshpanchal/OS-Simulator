@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OS Visualizer — Dashboard</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">OS</div><span class="brand-name">OSimulate</span></div>
+        <div class="actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">OS Lab Simulator</h1>
+        <p class="subtitle">Visual modules for Operating System concepts.</p>
+
+        <section class="cards">
+            <a class="card module" href="cpu.html">
+                <div class="module-icon">🧮</div>
+                <h3>CPU Scheduling</h3>
+                <p class="muted">FCFS, SJF, Round Robin visualization</p>
+            </a>
+            <a class="card module" href="memory.html">
+                <div class="module-icon">📦</div>
+                <h3>Memory Management</h3>
+                <p class="muted">First Fit, Best Fit, Worst Fit</p>
+            </a>
+            <a class="card module" href="deadlock.html">
+                <div class="module-icon">🔗</div>
+                <h3>Deadlock Handling</h3>
+                <p class="muted">RAG, Banker’s Algorithm</p>
+            </a>
+            <a class="card module" href="file.html">
+                <div class="module-icon">🗂️</div>
+                <h3>File System</h3>
+                <p class="muted">Tree view and operations</p>
+            </a>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+    <script>
+        // Ensure theme toggle works on the dashboard too
+        document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File System Visualizer</title>
+    <link rel="stylesheet" href="file.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">OS</div><span class="brand-name">OSimulate</span></div>
+        <div class="actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">File System</h1>
+        <p class="subtitle">Create, delete, and navigate a simple directory tree.</p>
+
+        <section class="layout">
+            <nav class="sidebar">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link" href="cpu.html">CPU Scheduling</a>
+                <a class="nav-link" href="memory.html">Memory Management</a>
+                <a class="nav-link" href="deadlock.html">Deadlock</a>
+                <a class="nav-link active" href="file.html">File System</a>
+            </nav>
+
+            <section class="content card">
+                <div class="controls">
+                    <label class="field"><span>Node Name</span><input id="nodeName" placeholder="name" /></label>
+                    <label class="field"><span>Type</span>
+                        <select id="nodeType"><option value="file">File</option><option value="dir">Directory</option></select>
+                    </label>
+                    <button id="create" class="primary" type="button">Create</button>
+                    <button id="delete" class="danger" type="button">Delete Selected</button>
+                    <button id="reset" class="ghost" type="button">Reset</button>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <h3 class="section-subtitle">Tree</h3>
+                        <div id="tree" class="tree"></div>
+                    </div>
+                    <div>
+                        <h3 class="section-subtitle">Details</h3>
+                        <div class="code-block" id="details"></div>
+                        <div class="metrics" id="metrics"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="file.js"></script>
+    <script>document.getElementById('themeToggle').addEventListener('click',()=>document.body.classList.toggle('light'));</script>
+</body>
+
+</html>
+

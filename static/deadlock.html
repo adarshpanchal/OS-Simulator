@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deadlock Visualizer</title>
+    <link rel="stylesheet" href="deadlock.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">OS</div><span class="brand-name">OSimulate</span></div>
+        <div class="actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Deadlock Handling</h1>
+        <p class="subtitle">Visualize Resource Allocation Graph (RAG) and Banker's Algorithm.</p>
+
+        <section class="layout">
+            <nav class="sidebar">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link" href="cpu.html">CPU Scheduling</a>
+                <a class="nav-link" href="memory.html">Memory Management</a>
+                <a class="nav-link active" href="deadlock.html">Deadlock</a>
+                <a class="nav-link" href="file.html">File System</a>
+            </nav>
+
+            <section class="content card">
+                <div class="controls">
+                    <label class="field">
+                        <span>Mode</span>
+                        <select id="mode">
+                            <option value="rag">RAG</option>
+                            <option value="banker">Banker's Algorithm</option>
+                        </select>
+                    </label>
+                    <button id="addProcess" class="primary" type="button">Add Process</button>
+                    <button id="addResource" class="primary" type="button">Add Resource</button>
+                    <button id="run" class="success" type="button">Run</button>
+                    <button id="reset" class="ghost" type="button">Reset</button>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <h3 class="section-subtitle">Processes & Resources</h3>
+                        <div class="table-wrap">
+                            <table class="table" id="entityTable">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>ID</th>
+                                        <th>Instances/Max</th>
+                                        <th>Allocation</th>
+                                        <th>Request/Need</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="section-subtitle">Visualization</h3>
+                        <div class="code-block" id="vis"></div>
+                        <div class="metrics" id="metrics"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="deadlock.js"></script>
+    <script>document.getElementById('themeToggle').addEventListener('click',()=>document.body.classList.toggle('light'));</script>
+</body>
+
+</html>
+

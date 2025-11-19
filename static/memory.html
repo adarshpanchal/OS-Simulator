@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Management Visualizer</title>
+    <link rel="stylesheet" href="memory.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">OS</div><span class="brand-name">OSimulate</span></div>
+        <div class="actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Memory Management</h1>
+        <p class="subtitle">Visualize contiguous allocation: First Fit, Best Fit, Worst Fit.</p>
+
+        <section class="layout">
+            <nav class="sidebar">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link" href="cpu.html">CPU Scheduling</a>
+                <a class="nav-link active" href="memory.html">Memory Management</a>
+                <a class="nav-link" href="deadlock.html">Deadlock</a>
+                <a class="nav-link" href="file.html">File System</a>
+            </nav>
+
+            <section class="content card">
+                <div class="controls">
+                    <label class="field">
+                        <span>Algorithm</span>
+                        <select id="algoSelect">
+                            <option value="first">First Fit</option>
+                            <option value="best">Best Fit</option>
+                            <option value="worst">Worst Fit</option>
+                        </select>
+                    </label>
+                    <button id="addBlock" class="primary" type="button">Add Block</button>
+                    <button id="addProcess" class="primary" type="button">Add Process</button>
+                    <button id="run" class="success" type="button">Run</button>
+                    <button id="reset" class="ghost" type="button">Reset</button>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <h3 class="section-subtitle">Memory Blocks</h3>
+                        <div class="table-wrap">
+                            <table class="table" id="blockTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Size</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="section-subtitle">Processes</h3>
+                        <div class="table-wrap">
+                            <table class="table" id="procTable">
+                                <thead>
+                                    <tr>
+                                        <th>Process</th>
+                                        <th>Size</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="section-subtitle">Visualization</h3>
+                        <div class="code-block" id="vis"></div>
+                        <div class="metrics" id="metrics"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="memory.js"></script>
+    <script>document.getElementById('themeToggle').addEventListener('click',()=>document.body.classList.toggle('light'));</script>
+</body>
+
+</html>
+

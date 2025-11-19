@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPU Scheduling Visualizer</title>
+    <link rel="stylesheet" href="cpu.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo">OS</div><span class="brand-name">OSimulate</span></div>
+        <div class="actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">CPU Scheduling Algorithms</h1>
+        <p class="subtitle">Visualize FCFS, SJF, and Round Robin scheduling.</p>
+
+        <div class="tabs" id="tabs">
+            <button class="tab active" data-mode="FCFS">FCFS</button>
+            <button class="tab" data-mode="SJF">SJF</button>
+            <button class="tab" data-mode="RR">Round Robin</button>
+        </div>
+
+        <section class="card two-col">
+            <div class="left">
+                <h2 class="section-title" id="algoTitle">First-Come, First-Served (FCFS)</h2>
+                <p class="muted" id="algoDesc">Non-preemptive: processes are executed in order of arrival.</p>
+                <h3 class="section-subtitle">Algorithm Implementation</h3>
+                <pre class="code-block" id="algoSnippet"></pre>
+            </div>
+
+            <div class="right">
+                <h3 class="section-subtitle">Visualization</h3>
+
+                <div class="controls">
+                    <label class="field" id="quantumField" style="display:none;">
+                        <span>Time Quantum</span>
+                        <input type="number" id="quantum" value="2" min="1" step="1" />
+                    </label>
+                    <button id="addProcess" class="primary" type="button">Add Process</button>
+                    <button id="run" class="success" type="button">Run</button>
+                    <button id="reset" class="ghost" type="button">Reset</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="table" id="procTable">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Color</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="gantt" id="gantt"></div>
+                <div class="metrics" id="metrics"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="cpu.js"></script>
+</body>
+
+</html>
